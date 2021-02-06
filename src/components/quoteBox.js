@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./quoteBox.css";
 
 function generateRandomIndex(length) {
   return Math.floor(Math.random() * length);
@@ -13,10 +14,15 @@ export default function QuoteBox({ quotes }) {
 
   const { quote, author } = quotes[randomIndex];
   return (
-    <section id="quote-box">
-      <p>"{quote}"</p>
-      <span>—— {author}</span>
-      <button onClick={getNewQuote}>New quote</button>
+    <section className="quote-box" id="quote-box">
+      <div className="quote-main">
+        <p>"{quote}"</p>
+        <span>—— {author}</span>
+      </div>
+      <div className="quote-footer">
+        <a href="twitter.com/intent/tweet">Tweet this one</a>
+        <button onClick={getNewQuote}>New quote</button>
+      </div>
     </section>
   );
 }
